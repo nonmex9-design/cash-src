@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "server.mjs": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    { "src": "/(.*)", "dest": "/server.mjs" }
+  ]
+}
