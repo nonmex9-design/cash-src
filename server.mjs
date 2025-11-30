@@ -15,7 +15,9 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // ---------- DB ----------
-const db = new Database('/tmp/cash.db');
+import { tmpdir } from 'os';
+const dbPath = process.env.VERCEL ? `${tmpdir()}/cash.db` : 'cash.db';
+const db = new Database(dbPath);
 db.pragma('journal_mode = WAL');
 db.exec(`
 CREATE TABLE IF NOT EXISTS users(
@@ -269,4 +271,5 @@ app.get('/', (_req, res) => res.sendFile(process.cwd() + '/index.html'));
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
 
