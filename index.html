@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Velocity Cash + Crypto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- auth -->
+<div id="authPage">
+  <h2 id="authTitle">Login</h2>
+  <form id="authForm">
+    <input id="username" placeholder="username" required>
+    <input id="password" type="password" placeholder="password" required>
+    <button type="submit">Sign in</button>
+    <button type="button" id="switchAuth">Need an account? Register</button>
+  </form>
+</div>
+
+<!-- main app -->
+<div id="app" class="hidden">
+  <header>
+    <span id="welcome"></span>
+    <span id="bal"></span>
+    <button id="logout">Logout</button>
+  </header>
+
+  <main>
+    <section id="sendCash">
+      <h3>Send Cash</h3>
+      <form id="sendCashForm">
+        <input id="toUser" placeholder="recipient" required>
+        <input id="amount" type="number" step="0.01" placeholder="amount" required>
+        <button type="submit">Send $</button>
+      </form>
+    </section>
+
+    <section id="gambleSec">
+      <h3>Crypto Dice (0-99)</h3>
+      <form id="gambleForm">
+        <input id="wager" type="number" step="0.01" placeholder="wager $" min="0.01" max="500" required>
+        <input id="target" type="number" placeholder="roll ≤ x to win" min="0" max="99" required>
+        <button type="submit">Gamble</button>
+      </form>
+      <p id="gambleRes"></p>
+    </section>
+
+    <section id="mintSec">
+      <h3>Mint Your Token</h3>
+      <form id="mintForm">
+        <input id="coinName" placeholder="Coin name" required>
+        <input id="coinSym" placeholder="Symbol (ABC)" required>
+        <input id="coinSup" type="number" placeholder="supply" min="1" required>
+        <button type="submit">Mint</button>
+      </form>
+      <p id="mintRes"></p>
+    </section>
+
+    <section id="sendCoinSec">
+      <h3>Transfer Coins</h3>
+      <form id="sendCoinForm">
+        <input id="coinSymSend" placeholder="symbol" required>
+        <input id="toUserCoin" placeholder="recipient" required>
+        <input id="amtCoin" type="number" placeholder="amount" min="1" required>
+        <button type="submit">Send Coins</button>
+      </form>
+    </section>
+
+    <section id="hist">
+      <h3>History</h3>
+      <table>
+        <thead><tr><th>When</th><th>To / From</th><th>$</th><th>Status</th></tr></thead>
+        <tbody id="histBody"></tbody>
+      </table>
+    </section>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
