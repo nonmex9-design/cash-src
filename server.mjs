@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static('.'));
 
 // ---------- DB ----------
-const db = new Database('cash.db');
+const db = new Database('/tmp/cash.db');
 db.pragma('journal_mode = WAL');
 db.exec(`
 CREATE TABLE IF NOT EXISTS users(
@@ -269,3 +269,4 @@ app.get('/', (_req, res) => res.sendFile(process.cwd() + '/index.html'));
 
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+
