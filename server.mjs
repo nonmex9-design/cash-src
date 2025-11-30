@@ -7,7 +7,7 @@ import Database from 'better-sqlite3';
 import { v4 as uuid } from 'uuid';
 
 const app  = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;;
 const JWT_SECRET = 'dev-secret-change-me';
 
 app.use(cors());
@@ -267,4 +267,5 @@ app.get('/api/coin-balance/:symbol', authMid, (req, res) => {
 // ---------- serve UI ----------
 app.get('/', (_req, res) => res.sendFile(process.cwd() + '/index.html'));
 
-app.listen(PORT, () => console.log(`Running on http://localhost:${PORT}`));
+
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
